@@ -1,0 +1,46 @@
+package br.com.fiap.rh.funcionario;
+
+public abstract class Funcionario {
+	
+	private int codigo;
+	private String nome;
+	private double salarioBase;
+	
+	public abstract double getSalario();
+	
+	public double getSalarioBase() {
+		return salarioBase;
+	}
+
+	public void setSalarioBase(double salarioBase) {
+		this.salarioBase = salarioBase;
+	}
+
+	public Funcionario(String nome) {
+		this.nome = nome;
+	}
+	
+	public Funcionario() {
+		
+	}
+	
+	public int getCodigo() {
+		return codigo;
+	}
+	
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	
+	
+
+}
