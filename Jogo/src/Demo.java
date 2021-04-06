@@ -1,8 +1,10 @@
 
 public class Demo {
 	public static void main(String[] args) {
-		Jogador aragorn = new Jogador();
-		Jogador legolas = new Jogador("Legolas");
+		Jogador aragorn = new Guerreiro();
+		Jogador legolas = new Mago();
+		
+		new Fase().carregar(aragorn);
 		
 		System.out.println(aragorn);
 		

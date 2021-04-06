@@ -1,4 +1,4 @@
-public class Jogador {
+public abstract class Jogador implements Visivel {
 	
 	private String nome;
 	private int xp;
