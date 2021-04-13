@@ -1,26 +1,28 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.util.List;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
+import javax.swing.UIManager;
 
 
 public class App {
 	
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		JFrame janela = new JFrame("Meu App");
 		janela.setLayout(new FlowLayout());
 		
@@ -46,18 +48,16 @@ public class App {
 		janela.add(panel, BorderLayout.CENTER);
 		janela.add(new JButton("Salvar"), BorderLayout.SOUTH);
 		
-		//new RadioGroup(List.of("Boleto", "Cartao"));
+		RadioGroup radioGroup = new RadioGroup(List.of("Boleto", "Cartao"));
+		janela.add(radioGroup);
 		
+		janela.add(new RadioGroup(List.of("Residencial", "Comercial", "Celular")));
 		
-//		JRadioButton buttonBoleto = new JRadioButton("boleto");
-//		JRadioButton buttonCartao = new JRadioButton("cartão");
-//		ButtonGroup groupoFormaDePagamento = new ButtonGroup();
-//		groupoFormaDePagamento.add(buttonCartao);
-//		groupoFormaDePagamento.add(buttonBoleto);
+		String[] cidades = {"São Paulo", "Osasco", "Diadema"};
+		janela.add(new JComboBox<String>(cidades));
 		
-		janela.add(buttonCartao);
-		janela.add(buttonBoleto);
-		
+		janela.add(new StarRater(5, 2));
+				
 		
 		janela.setSize(600, 400);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
